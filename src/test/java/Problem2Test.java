@@ -18,5 +18,7 @@ public class Problem2Test {
         assertEquals("The sum of even numbers less than 4,000,000",
                 4613732,
                 Problem2.fib(4000000));
+        //This is how to run out of memory
+//                Problem2.fib(Integer.MAX_VALUE));
     }
 }
