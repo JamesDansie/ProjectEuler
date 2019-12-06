@@ -5,11 +5,12 @@ import java.util.List;
 public class MazeDriver {
     public static void main(String[] args){
         int[][] numMaze = {
-                {1, 2, 1, 1, 1},
-                {1, 0, 0, 1, 1},
-                {1, 0, 0, 0, 0},
-                {1, 1, 0, 1, 0},
-                {0, 0, 0, 1, 3}
+                {1, 2, 1, 1, 1, 1},
+                {1, 0, 0, 1, 1, 1},
+                {1, 0, 0, 0, 0, 1},
+                {1, 1, 0, 1, 0, 1},
+                {1, 0, 0, 1, 0, 1},
+                {1, 1, 1, 1, 3, 1}
         };
         BMaze maze = new BMaze(numMaze);
 
