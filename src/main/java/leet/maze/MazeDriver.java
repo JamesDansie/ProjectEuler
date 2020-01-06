@@ -18,5 +18,7 @@ public class MazeDriver {
         List<Coordinate> path = solver.BFTraversal(maze);
         System.out.println(path);
         System.out.println(maze.stringPath(path));
+
+
     }
 }
