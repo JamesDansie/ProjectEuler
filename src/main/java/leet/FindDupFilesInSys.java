@@ -1,9 +1,6 @@
 package leet;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 //https://leetcode.com/problems/find-duplicate-file-in-system/
 //Example 1:
@@ -23,23 +20,42 @@ import java.util.Scanner;
 
 
 public class FindDupFilesInSys {
-    public List<List<String>> findDuplicate(String[] paths) {
+    public static List<List<String>> findDuplicate(String[] paths) {
         HashMap<String, ArrayList<String>> hm = new HashMap<>();
         for(String path: paths){
+            //using scanner to break up the string
             Scanner sc = new Scanner(path);
             String root = sc.next();
             while(sc.hasNext()){
                 String filestr = sc.next();
-                int openningParen;
-                int closingParen;
-                for(char ch: filestr.toCharArray()){
-                    if(ch == '('){
-                        
+                int openningParen = 0;
+                int closingParen = 0;
+                for(int i = 0; i < filestr.length(); i++){
+                    if(filestr.charAt(i) == '('){
+                        openningParen = i;
                     }
-
+                    if(filestr.charAt(i) == ')'){
+                        closingParen = i;
+                    }
                 }
+
+                String filename = filestr.substring(openningParen);
+                String subroot = filestr.substring(0, openningParen);
+
+                hashadd(hm, filename, root+ "/" +subroot);
             }
         }
+        List<List<String>> ans = new LinkedList<>();
+        for(ArrayList<String> value : hm.values()){
+            if(value.size() > 1){
+                LinkedList<String> result = new LinkedList<>();
+                for(String fileDirectory : value){
+                    result.add(fileDirectory);
+                }
+                ans.add(result);
+            }
+        }
+        return ans;
     }
 
     //tester code
@@ -54,6 +70,9 @@ public class FindDupFilesInSys {
         hashadd(hm, "1", "one again");
         hashadd(hm, "2", "two");
         System.out.println(hm);
+
+        String[] input = new String[]{"root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)", "root 4.txt(efgh)"};
+        System.out.println(FindDupFilesInSys.findDuplicate(input));
     }
 
     public static void hashadd(HashMap<String, ArrayList<String>> hm, String key, String value){
