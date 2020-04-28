@@ -1,3 +1,5 @@
+package projecteuler;
+
 import java.util.ArrayList;
 
 public class Problem2 {

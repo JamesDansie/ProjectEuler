@@ -1,3 +1,5 @@
+package projecteuler;
+
 import java.util.LinkedList;
 
 public class Problem3 {

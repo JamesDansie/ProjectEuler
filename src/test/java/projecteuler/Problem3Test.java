@@ -1,6 +1,7 @@
-import org.junit.Test;
+package projecteuler;
 
-import java.math.BigInteger;
+import org.junit.Test;
+import projecteuler.Problem3;
 
 import static org.junit.Assert.*;
 

@@ -1,6 +1,8 @@
-import org.junit.Test;
+package projecteuler;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
+import projecteuler.Problem2;
+
 import static org.junit.Assert.assertEquals;
 
 public class Problem2Test {
@@ -19,6 +21,6 @@ public class Problem2Test {
                 4613732,
                 Problem2.fib(4000000));
         //This is how to run out of memory
-//                Problem2.fib(Integer.MAX_VALUE));
+//                projecteuler.Problem2.fib(Integer.MAX_VALUE));
     }
 }
